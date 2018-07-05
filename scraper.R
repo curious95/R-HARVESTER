@@ -1,13 +1,16 @@
 library(rvest)
 library(curl)
 
+#Scrapper function to take an URL as input and get the product details
 scrapePage<-function (url){
 
 
   statProduct = "https://bevasarlas.tesco.hu"
   
+  #getting the file and saving in root folder
   download.file(url, destfile = "scrapedpage.html", quiet=TRUE)
   
+  #getting the contents of the HTML page
   content <- read_html("scrapedpage.html",encoding = "utf8")
   
   productNames<-content %>%
